@@ -1,0 +1,29 @@
+def hydrogen_model_refraction(input_signal, scaling_factor=0.1):
+    """
+    Generates 7 positive and 7 negative harmonic outputs from a single input.
+    
+    Parameters:
+        input_signal (float): The base input signal (e.g., frequency or amplitude).
+        scaling_factor (float): The factor to scale harmonics by.
+    
+    Returns:
+        tuple: Two lists containing 7 positive and 7 negative harmonics.
+    """
+    positive_harmonics = []
+    negative_harmonics = []
+
+    # Generate 7 positive harmonics
+    for i in range(1, 8):
+        positive_harmonics.append(input_signal * (1 + i * scaling_factor))
+
+    # Generate 7 negative harmonics (inverse waveforms)
+    for i in range(1, 8):
+        negative_harmonics.append(input_signal * (1 - i * scaling_factor))
+
+    return positive_harmonics, negative_harmonics
+
+# Example Usage
+input_wave = 440  # Base frequency in Hz (A4 note)
+pos_harmonics, neg_harmonics = hydrogen_model_refraction(input_wave)
+print("Positive Harmonics:", pos_harmonics)
+print("Negative Harmonics:", neg_harmonics)
