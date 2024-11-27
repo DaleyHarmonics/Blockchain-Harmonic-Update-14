@@ -1,0 +1,14 @@
+def encapsulate(imbalance, em_field):
+    # Check if imbalance is detected
+    if imbalance:
+        # Encapsulate the imbalance within the EM field
+        em_field['encapsulated_imbalances'].append(imbalance)
+        
+        # Render the imbalance inert
+        imbalance['state'] = 'inert'
+        
+        # Allow it to flow naturally
+        imbalance['flow'] = 'natural'
+    
+    # Return the updated EM field
+    return em_field
