@@ -1,0 +1,20 @@
+# Decrypt and extract original message
+def serious_decrypt(silly_message):
+    # Split the story and encrypted message
+    try:
+        _, encrypted_message = silly_message.split("###")
+    except ValueError:
+        return "Invalid format. No fluffy story or encryption found."
+
+    # Decode the encrypted message using base64
+    try:
+        original_message = base64.b64decode(encrypted_message.strip()).decode("utf-8")
+    except Exception as e:
+        return f"Decryption failed: {e}"
+
+    return original_message
+
+# Example
+original_message = serious_decrypt(silly_message)
+print("Serious Decrypted Message:")
+print(original_message)
