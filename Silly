@@ -1,0 +1,23 @@
+import base64
+import random
+
+# Silly stories
+fluffy_stories = [
+    "Rainbow Kitty forgot her lunch and traded her crayons for a tuna sandwich.",
+    "Fluffy Cat lost her homework in a sudden gust of wind and blamed Mr. Whiskers.",
+    "Johnny Meowington wouldn’t share his yarn ball during recess!",
+    "Paws McGee accidentally spilled milk all over his history book in class.",
+]
+
+# Encrypt and add story
+def silly_encrypt(message):
+    # Encode the message using base64
+    encrypted_message = base64.b64encode(message.encode("utf-8")).decode("utf-8")
+    # Add a random fluffy story
+    story = random.choice(fluffy_stories)
+    return f"{story} ### {encrypted_message}"
+
+# Example
+silly_message = silly_encrypt("Meet me at the park at 5 PM.")
+print("Silly Encrypted Message:")
+print(silly_message)
